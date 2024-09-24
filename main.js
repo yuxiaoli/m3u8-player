@@ -1,6 +1,6 @@
-function selectAll(elem) {
-    // elem = document.getElementById(id);
-    elem.focus();
+function selectAll() {
+    elem = document.getElementById("m3u8-placeholder");
+    // elem.focus();
     elem.select();
 }
 
