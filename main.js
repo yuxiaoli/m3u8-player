@@ -11,7 +11,8 @@ $(window).on('load', function () {
     }
     $('#play-btn').on('click', function () {
         localStorage.setItem('m3u8-link', $('#m3u8-placeholder')[0].value);
-        window.location.href = './player' + '#' + $('#m3u8-placeholder')[0].value;
+        // window.location.href = './player' + '#' + $('#m3u8-placeholder')[0].value;
+        window.location.href = `./player/index.html#${$('#m3u8-placeholder')[0].value}`;
     });
 
     window.addEventListener('keyup', function(event) {
