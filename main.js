@@ -4,6 +4,14 @@ function selectAll() {
     elem.select();
 }
 
+const handleKeyup = function(event) {
+    if (event.keyCode === 13) {
+        // alert('enter was pressed!');
+        play_button = document.getElementById("play-btn");
+        play_button.click();
+    }
+}
+
 $(window).on('load', function () {
     $('#m3u8-placeholder')[0].value = localStorage.getItem('m3u8-link') || '';
     if (!$('#m3u8-placeholder')[0].value) {
@@ -15,11 +23,9 @@ $(window).on('load', function () {
         window.location.href = `./player/index.html#${$('#m3u8-placeholder')[0].value}`;
     });
 
-    window.addEventListener('keyup', function(event) {
-      if (event.keyCode === 13) {
-        // alert('enter was pressed!');
-        play_button = document.getElementById("play-btn");
-        play_button.click();
-      }
-    });
+    window.addEventListener('keyup', handleKeyup);
+});
+
+$(window).on('unload', function () {
+    window.removeEventListener('keyup', handleKeyup);
 });
